@@ -137,7 +137,8 @@ USE_TZ = True
 
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

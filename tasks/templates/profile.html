@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Edit Profile</h2>
-<form method="post">
+<h2>{{ user.username }}'s Profile</h2>
+<p>Email: {{ user.email }}</p>
+<a href="{% url 'accounts:edit_profile' %}" class="btn btn-primary">Edit Profile</a>
+<form action="{% url 'accounts:delete_profile' %}" method="post" style="display: inline;">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Changes</button>
+    <button type="submit" class="btn btn-danger">Delete Profile</button>
 </form>
 {% endblock %}

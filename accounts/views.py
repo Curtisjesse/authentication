@@ -26,7 +26,7 @@ def edit_profile(request):
         form = CustomUserChangeForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('profile')  # Redirect to profile after saving
+            return redirect('profile')  
     else:
         form = CustomUserChangeForm(instance=request.user)
     return render(request, 'edit_profile.html', {'form': form})
@@ -37,5 +37,5 @@ def delete_profile(request):
     user = request.user
     if request.method == 'POST':
         user.delete()
-        return redirect('home')  # Redirect to home or login page after deletion
+        return redirect('home') 
     return render(request, 'delete_profile.html', {'user': user})
